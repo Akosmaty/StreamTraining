@@ -33,6 +33,8 @@ public class FiltredUsers {
 
         System.out.println("all male users living in Poland "+ filtredUsers);
 
+        System.out.println("pierwotna lista " + users);
+
 
 
 
