@@ -24,9 +24,14 @@ public class FiltredUsers {
                .map(g -> g.toString())
                .forEach(System.out::println);
 
+       List<Users> filtredUsers = new ArrayList<>();
 
 
+        users.stream().filter(g->g.gender.equals("male"))
+                .filter(g->g.livingCountry.equals("Poland"))
+                .forEach(g-> filtredUsers.add(g));
 
+        System.out.println("all male users living in Poland "+ filtredUsers);
 
 
 
