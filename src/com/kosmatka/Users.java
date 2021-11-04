@@ -26,4 +26,24 @@ public class Users {
                 ", livingCountry='" + livingCountry + '\'' +
                 '}';
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public String getBornCountry() {
+        return bornCountry;
+    }
+
+    public String getLivingCountry() {
+        return livingCountry;
+    }
 }

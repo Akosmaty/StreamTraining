@@ -1,9 +1,7 @@
 package com.kosmatka;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class FiltredUsers {
 
@@ -19,26 +17,29 @@ public class FiltredUsers {
                 );
 
 
-       users.stream()
-               .filter(g -> g.gender.equals("male"))
-               .map(g -> g.toString())
-               .forEach(System.out::println);
-
-       List<Users> filtredUsers = new ArrayList<>();
-
-
-        users.stream().filter(g->g.gender.equals("male"))
-                .filter(g->g.livingCountry.equals("Poland"))
-                .forEach(g-> filtredUsers.add(g));
-
-        System.out.println("all male users living in Poland "+ filtredUsers);
-
-        System.out.println("pierwotna lista " + users);
+        List<Integer> intlist = new ArrayList<Integer>();
+        intlist.add(1);
+        intlist.add(51);
+        intlist.add(222);
+        System.out.println(
+        intlist.stream().sorted().collect(Collectors.toList()));
+        System.out.println(
+        intlist.stream().collect(Collectors.toList()));
+        System.out.println(
+        intlist.stream().map(Integer-> new Users("liczba", Integer, "male", "poland","numberland"))
+                .collect(Collectors.toList()));
 
 
+        List<Users> usersList = users.stream()
+                .filter(o->o.name.endsWith("a"))
+                .collect(Collectors.toList());
 
 
-
+        System.out.println(usersList);
+        System.out.println(usersList.stream().sorted(Comparator.comparing(Users::getBornCountry)).collect(Collectors.toList()));
+       List<Users> usersFilterd = users.stream()
+               .filter(g->g.gender.equalsIgnoreCase("male"))
+               .collect(Collectors.toList());
 
 
 
